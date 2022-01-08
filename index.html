@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>BMI Calculator</title>
+    <style>
+      body {
+        min-width: 280px;
+      }
+      th {
+        padding-bottom: 0.5rem;
+      }
+      td {
+        padding: 0.75rem;
+        border: 1px solid #dee2e6;
+      }
+    </style>
+  </head>
+  <body class="w-screen h-screen flex justify-center text-lg">
+    <div class="container mx-auto flex flex-col justify-center items-center">
+      <h1
+        class="text-blue-900 font-bold text-2xl text-center md:text-3xl md:mb-1 lg:text-3xl"
+      >
+        Testtömeg index (BMI) kalkulátor
+      </h1>
+      <label for="height" class="text-xl mb-1 md:text-2xl md:mb-2"
+        >Magasság (cm)</label
+      >
+      <input
+        id="height"
+        class="text-xl text-center border border-black rounded-2xl focus:outline-blue-900 md:text-[1.4rem]"
+        type="number"
+        autocomplete="off"
+      />
+      <label for="weight" class="text-xl mb-1 md:text-2xl">Testsúly (kg)</label>
+      <input
+        id="weight"
+        class="text-xl text-center border border-black rounded-2xl focus:outline-blue-900 md:text-[1.4rem]"
+        class="text-center"
+        type="number"
+        autocomplete="off"
+      />
+      <div class="flex flex-row gap-3">
+        <label for="male" class="w-16 mt-2 cursor-pointer md:text-xl">
+          <input
+            type="radio"
+            name="sex"
+            value="male"
+            id="male"
+            class="accent-blue-900 cursor-pointer"
+            checked
+            onclick="document.getElementById('female').checked = false"
+          />
+          Férfi</label
+        >
+        <label for="female" class="w-16 mt-2 cursor-pointer md:text-xl">
+          <input
+            type="radio"
+            name="sex"
+            value="female"
+            id="female"
+            class="accent-blue-900 cursor-pointer"
+            onclick="document.getElementById('male').checked = false"
+          />
+          Nő</label
+        >
+      </div>
+      <button
+        onclick="displayBmiData()"
+        class="mt-3 bg-blue-900 text-white font-semibold py-1.5 px-4 border-b-4 border-indigo-900 rounded-full transition duration-300 hover:-translate-y-1 hover:scale-110 select-none"
+      >
+        BMI Kiszámítása
+      </button>
+      <h2 id="heading" class="mt-3 text-2xl font-semibold"></h2>
+      <p id="bmi" class="text-3xl text-blue-900 font-bold text-center"></p>
+      <table id="bmi-table" class="mt-4 text-center"></table>
+      <p
+        id="message"
+        class="mt-3 text-2xl text-blue-900 font-semibold md:text-3xl md:mt-5"
+      ></p>
+      <h3 id="ibw" class="font-semibold mt-2 md:text-xl md:mt-3"></h3>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
